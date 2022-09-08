@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="Lucas Freitas">
+        <ext:createCollection collectionName="shipping"/>
+
+        <ext:createIndex collectionName="orders">
+            <ext:keys>{external_id: 1}</ext:keys>
+            <ext:options>{name: "externalIdIdx"}</ext:options>
+        </ext:createIndex>
+    </changeSet>
+
+    <changeSet id="2" author="Lucas Freitas">
+        <ext:createIndex collectionName="orders">
+            <ext:keys>{uuid: 1}</ext:keys>
+            <ext:options>{name: "uuidIdx"}</ext:options>
+        </ext:createIndex>
+    </changeSet>
+
+</databaseChangeLog>
