@@ -2,11 +2,11 @@ package org.medeiros.model;
 
 public class Product {
 
-  private Long id;
+  private Long code;
   private String name;
 
-  public void setId(Long id) {
-    this.id = id;
+  public void setCode(Long code) {
+    this.code = code;
   }
 
   public void setName(String name) {
@@ -17,14 +17,14 @@ public class Product {
     return name;
   }
 
-  public Long getId() {
-    return id;
+  public Long getCode() {
+    return code;
   }
 
   @Override
   public String toString() {
     return "Product{" +
-        "id=" + id +
+        "code=" + code +
         ", name='" + name + '\'' +
         '}';
   }

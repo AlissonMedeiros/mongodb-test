@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  db:
+    image: quarkus/quarkus-mongo-jvm:latest
+    restart: always
+    environment:
+      MONGODB_URL: 'mongodb://order:item@mongodb:27017/'
+      MONGODB_USERNAME: 'order'
+      MONGODB_PASSWORD: 'item'
+      MONGODB_AUTH_SOURCE: 'admin'
+      MONGODB_DATABASE: 'order'
+    ports:
+      - 8080:8080
+    deploy:
+      resources:
+        limits:
+          cpus: 0.30
+          memory: 256M
+        reservations:
+          cpus: 0.20
+          memory: 256M

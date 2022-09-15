@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  db:
+  mongodb:
     image: mongo:latest
     restart: always
     environment:
@@ -13,10 +13,10 @@ services:
   mongo-express:
     image: mongo-express
     depends_on:
-      - db
+      - mongodb
     restart: always
     environment:
-      - ME_CONFIG_MONGODB_SERVER=db
+      - ME_CONFIG_MONGODB_SERVER=mongodb
       - ME_CONFIG_MONGODB_PORT=27017
       - ME_CONFIG_MONGODB_URL=mongodb://order:item@mongodb:27017/
       - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
@@ -25,6 +25,6 @@ services:
       - ME_CONFIG_BASICAUTH_USERNAME=order
       - ME_CONFIG_BASICAUTH_PASSWORD=item
     links:
-      - db
+      - mongodb
     ports:
       - 8081:8081

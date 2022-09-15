@@ -4,13 +4,13 @@ import java.math.BigDecimal;
 
 public class Item {
 
-  private long id;
+  private long code;
   private Product product;
   private int quantity;
   private BigDecimal price;
 
-  public long getId() {
-    return id;
+  public long getCode() {
+    return code;
   }
 
   public Product getProduct() {
@@ -25,8 +25,8 @@ public class Item {
     return price;
   }
 
-  public void setId(long id) {
-    this.id = id;
+  public void setCode(long code) {
+    this.code = code;
   }
 
   public void setProduct(Product product) {
@@ -44,7 +44,7 @@ public class Item {
   @Override
   public String toString() {
     return "Item{" +
-        "id=" + id +
+        "code=" + code +
         ", product=" + product +
         ", quantity=" + quantity +
         ", price=" + price +

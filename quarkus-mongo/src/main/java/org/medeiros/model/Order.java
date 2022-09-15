@@ -1,34 +1,45 @@
 package org.medeiros.model;
 
-import io.quarkus.mongodb.panache.common.MongoEntity;
 import java.util.List;
+import java.util.Objects;
 
-@MongoEntity(collection = "orders")
 public class Order {
-
-  private long id;
+  private long code;
   private List<Item> items;
 
-  public long getId() {
-    return id;
+  public long getCode() {
+    return code;
   }
 
   public List<Item> getItems() {
     return items;
   }
 
-  public void setId(long id) {
-    this.id = id;
+  public void setCode(long code) {
+    this.code = code;
   }
 
   public void setItems(List<Item> items) {
     this.items = items;
   }
 
-  @Override
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Order order = (Order) o;
+		return code == order.code && Objects.equals(items, order.items);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(code, items);
+	}
+
+	@Override
   public String toString() {
     return "Order{" +
-        "id=" + id +
+        "code=" + code +
         ", items=" + items +
         '}';
   }

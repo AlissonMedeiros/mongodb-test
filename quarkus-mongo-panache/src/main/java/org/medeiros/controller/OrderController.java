@@ -24,7 +24,7 @@ public class OrderController {
   @Path("/{id}")
   @Produces(MediaType.APPLICATION_JSON)
   public Response get(@PathParam("id") Long id) {
-    final var order = repository.find("_id", id)
+    final var order = repository.find("code", id)
         .firstResultOptional();
     if (order.isPresent()) {
       return Response.ok(order).build();
