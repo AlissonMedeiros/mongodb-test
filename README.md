@@ -3,7 +3,6 @@
 
 ## How to build mongo without Panache
 
-
 ### With JVM
 The application can be packaged using:
 ```shell script
@@ -42,4 +41,24 @@ mvn package -f quarkus-mongo-panache/pom.xml -Pnative -Dquarkus.native.container
 
 ```shell script
 docker build -f quarkus-mongo-panache/src/main/docker/Dockerfile.native-micro -t quarkus/quarkus-mongo-panache-native-micro .
+`````
+
+## How to run the tests
+
+### Start mongodb
+
+```shell script
+docker-compose up
+`````
+
+### Start the App that you need
+
+```shell script
+docker-compose -f app-mongo-XXX.yml up
+`````
+
+### Start the Test Script
+
+```shell script
+k6 run test-script.js
 `````
